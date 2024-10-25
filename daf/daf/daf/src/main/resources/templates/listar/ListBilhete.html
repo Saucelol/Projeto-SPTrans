@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
+	<title>Pagina de Cadastro</title>
+	<meta name="author" content="Davi Arthur">
+	<script src="https://kit.fontawesome.com/006642858d.js"></script>
+	<link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+	<link
+		href="https://font.googleapis.com/css2family=Open+Sans:ital,wght@0,400;1,600&family=Ubuntu&family=Work+Snas&display=swap"
+		rel="stylesheet">
+	<link rel="Stylesheet" href="/css/Style.css">
+</head>
+
+<body style=" background-image: url(/img/White-to-black-bg-img-custom.png); background-size: 100% 100%;">
+
+	<!--Cabeçalho-->
+	<div th:replace="fragmentos/fragmentos :: cabecalho"></div>
+
+	<!--Corpo-->
+	<div class="container" style=" background-color: darkgray;">
+
+		<hr>
+		<h3>Ultimos Bilhetes Cadastrados</h3>
+		<hr>
+		<table class="table table-borderd table-hover">
+			<thead>
+				<th scope="col">Número do bilhete</th>
+				<th scope="col">Id do proprietário</th>
+				<th scope="col">Tipo do bilhete</th>
+				<th scope="col">Estado do bilhete</th>
+				<th scope="col">Data de emissão</th>
+				<th scope="col">Data de validade</th>
+				<th scope="col">Ação</th>
+			</thead>
+			<tbody>
+				<tr scope="row" th:each="bilhete : ${bilhetesList}">
+
+					<td th:text="${bilhete.PK_ID_BILHETE}"></td>
+					<td th:text="${bilhete.FK_ID_USUARIO}"></td>
+					<td th:text="${bilhete.TIPOBILHETE}"></td>
+					<td th:text="${bilhete.ATIVO}"></td>
+					<td th:text="${bilhete.DATA_EMISSAO}"></td>
+					<td th:text="${bilhete.DATA_VALIDADE}"></td>
+					<td>
+						<a class="btn btn-primary" th:href="@{alterarBilhete/{id}(id=${bilhete.PK_ID_BILHETE})}">
+							<i class="fas fa-edit"></i> Editar</a>
+						<a class="btn btn-danger" th:href="@{excluirBilhete/{id}(id=${bilhete.PK_ID_BILHETE})}">
+							<i class="fas fa-times"></i> &nbsp;Excluir</a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<!--Rodapé-->
+	<div th:replace="fragmentos/fragmentos :: footer"></div>
+
+	<script>src = "/webjars/jquery/3.5.1/jquery.min.js"</script>
+	<script>src = "/webjars/bootstrap/js/bootstrap.min.js"</script>
+</body>
+
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
+	<title>Pagina de Cadastro</title>
+	<meta name="author" content="Davi Arthur">
+	<script src="https://kit.fontawesome.com/006642858d.js"></script>
+	<link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+	<link
+		href="https://font.googleapis.com/css2family=Open+Sans:ital,wght@0,400;1,600&family=Ubuntu&family=Work+Snas&display=swap"
+		rel="stylesheet">
+	<link rel="Stylesheet" href="/css/Style.css">
+</head>
+
+<body style=" background-image: url(/img/White-to-black-bg-img-custom.png); background-size: 100% 100%;">
+
+	<!--Cabeçalho-->
+	<div th:replace="fragmentos/fragmentos :: cabecalho"></div>
+
+	<!--Corpo-->
+	<div class="container">
+
+		<!--Id-->
+		<div class="formulario">
+			<form method="post" action="/InsertUsuario" th:object="${usuario}">
+				<!--Nome-->
+				<div class="row">
+					<div class="col-md-6 form-group offset-md-3">
+						<div style="margin-top: 10px;" class="alert alert-danger" role="alert"
+							th:if="${#fields.hasErrors('NOME_USUARIO')}">
+							<i class="fas fa-exclamation-circle" style="color: #ff0000;"></i>
+							<label class="validation-message" th:errors="*{NOME_USUARIO}"></label>
+						</div>
+						<label class="Cadastrotxt">Nome:</label>
+						<input class="form-control" placeholder="Ex: Jose da Silva" th:field="*{NOME_USUARIO}"
+							value="Jose da Silva">
+					</div>
+				</div>
+				<!--Email-->
+				<div class="row">
+					<div class="col-md-6 form-group offset-md-3">
+						<div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('EMAIL')}">
+							<i class="fas fa-exclamation-circle" style="color: #ff0000;"></i>
+							<label class="validation-message" th:errors="*{EMAIL}"></label>
+						</div>
+						<label class="Cadastrotxt">Email:</label>
+						<input class="form-control" placeholder="Ex: JoseSilva@gmail.com" th:field="*{EMAIL}"
+							value="JoseSilva@gmail.com">
+					</div>
+				</div>
+				<!--Telefone-->
+				<div class="row">
+					<div class="col-md-6 form-group offset-md-3">
+						<div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('TELEFONE')}">
+							<i class="fas fa-exclamation-circle" style="color: #ff0000;"></i>
+							<label class="validation-message" th:errors="*{TELEFONE}"></label>
+						</div>
+						<label class="Cadastrotxt">Telefone:</label>
+						<input class="form-control" placeholder="Ex: +55 (11) 91234-5678" th:field="*{TELEFONE}"
+							value="+55 (11) 91234-5678">
+					</div>
+				</div>
+				<!--CPF-->
+				<div class="row">
+					<div class="col-md-6 form-group offset-md-3">
+						<div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('CPF')}">
+							<i class="fas fa-exclamation-circle" style="color: #ff0000;"></i>
+							<label class="validation-message" th:errors="*{CPF}"></label>
+						</div>
+						<label class="Cadastrotxt">CPF:</label>
+						<input class="form-control" placeholder="Ex: 123.456.789-01" th:field="*{CPF}"
+							value="123.456.789-01">
+					</div>
+				</div>
+				<!--RG-->
+				<div class="row">
+					<div class="col-md-6 form-group offset-md-3">
+						<div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('RG')}">
+							<i class="fas fa-exclamation-circle" style="color: #ff0000;"></i>
+							<label class="validation-message" th:errors="*{RG}"></label>
+						</div>
+						<label class="Cadastrotxt">RG:</label>
+						<input class="form-control" placeholder="Ex: 12.345.678-9" th:field="*{RG}"
+							value="12.345.678-9">
+					</div>
+				</div>
+				<!--Data de Nascimento-->
+				<div class="row">
+					<div class="col-md-6 form-group offset-md-3">
+						<div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('DATA_NASC')}">
+							<i class="fas fa-exclamation-circle" style="color: #ff0000;"></i>
+							<label class="validation-message" th:errors="*{DATA_NASC}"></label>
+						</div>
+						<label class="Cadastrotxt">Data de Nascimento:</label>
+						<input class="form-control" placeholder="Ex: 30/01/2000" th:field="*{DATA_NASC}"
+							value="30/01/2000">
+					</div>
+				</div>
+				<!--Botões finalizar-->
+				<div th:replace="fragmentos/fragmentos :: botoes_submit"></div>
+		</div>
+	</div>
+
+	<!--Rodapé-->
+	<div th:replace="fragmentos/fragmentos :: footer"></div>
+
+	<script src="js/main.js"></script>
+	<script>src = "/webjars/jquery/3.5.1/jquery.min.js"</script>
+	<script>src = "/webjars/bootstrap/js/bootstrap.min.js"</script>
+</body>
+
+</html>

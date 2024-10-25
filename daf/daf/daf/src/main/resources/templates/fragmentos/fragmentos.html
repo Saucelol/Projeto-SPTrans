@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
+	<title>Pagina de Cadastro</title>
+	<meta name="author" content="Davi Arthur">
+	<script src="https://kit.fontawesome.com/006642858d.js"></script>
+	<link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+	<link
+		href="https://font.googleapis.com/css2family=Open+Sans:ital,wght@0,400;1,600&family=Ubuntu&family=Work+Snas&display=swap"
+		rel="stylesheet">
+	<link rel="Stylesheet" href="/css/Style.css">
+</head>
+
+<body>
+
+	<!--Cabeçalho-->
+	<header th:fragment="cabecalho">
+		<nav class="navbar navbar-expand-lg navbar-dark" style="background-color: rgb(153, 153, 153);">
+			<a class="navbar-brand" th:href="@{/}">
+				<img src="/img/logo_header-site.png" width="150px">
+			</a>
+			<button class="navbar-toggler" type="button" data-toggle="collape" data-target="#navMobile">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div id="navMobile" class="navbar-collapse collapse justify-content-end">
+				<a class="btn-nav nav-item nav-link" th:href="@{/}"><i class="fas fa-home"></i> Home</a>
+				<a class="btn-nav nav-item nav-link" th:href="@{/inserirUsuario}">
+					<i class="fas fa-sign-in-alt"></i>
+					Cadastrar Usuario</a>
+				<a class="btn-nav nav-item nav-link" th:href="@{/ListarUsuario}">
+					<i class="fas fa-search"></i> Pesquisar Usuario</a>
+				<a class="btn-nav nav-item nav-link btn-danger" onclick="history.back()">Voltar <i
+						class="fas fa-sign-out-alt"></i></a>
+			</div>
+		</nav>
+	</header>
+
+	<!--	<header>-->
+	<!--			<nav class="navbar navbar-expand-lg navbar-dark" style="background-color: grey;">-->
+	<!--				<a class="navbar-brand" th:href="@{/}">-->
+	<!--					<img src="/img/logo_header-site.png" width="150px" />-->
+	<!--				</a>-->
+	<!--				<div class="dropdown">-->
+	<!--					<button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton"-->
+	<!--						data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">-->
+	<!--						<i class="fas fa-sign-in-alt"></i> Cadastrar</button>-->
+	<!--					<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">-->
+	<!--						<a class="dropdown-item" th:href="@{/inserirUsuario}">Usuario</a>-->
+	<!--						<a class="dropdown-item" th:href="@{/inserirBilhete}">Bilhete</a>-->
+	<!--						<a class="dropdown-item" th:href="@{/inserirEndereco}">Endereço</a>-->
+	<!--					</div>-->
+	<!--				</div>-->
+	<!--				&nbsp;&nbsp;-->
+	<!--				<div class="dropdown">-->
+	<!--					<button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton1"-->
+	<!--						data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
+	<!--						<i class="fas fa-search"></i> Pesquisar</button>-->
+	<!--					<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">-->
+	<!--						<a class="dropdown-item" th:href="@{/ListarUsuario}">Usuario</a>-->
+	<!--						<a class="dropdown-item" th:href="@{/ListarBilhete}">Bilhete</a>-->
+	<!--						<a class="dropdown-item" th:href="@{/ListarEndereco}">Endereço</a>-->
+	<!--					</div>-->
+	<!--				</div>-->
+	<!--			</nav>-->
+	<!--		</header>-->
+
+	<!--Botões finalizar-->
+	<div class="row center" th:fragment="botoes_submit">
+		<button type="submit" class="btn btn-success offset-md-4">
+			<i class="fas fa-check"></i>&nbsp;SALVAR
+		</button>
+		&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
+		<button type="reset" class="btn btn-outline-dark">
+			<i class="fas fa-undo-alt fa-spin-reverse"></i>LIMPAR
+		</button>
+
+		&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
+		<a class="btn btn-outline-danger" onclick="history.back()">
+			<i class="fas fa-trash-alt"></i> &nbsp;CANCELAR
+		</a>
+	</div>
+
+	<!--Rodapé-->
+	<footer th:fragment="footer">
+		<div class="footer" style="background-color: rgb(232, 232, 232);  text-align: center; width: 100%;">
+			<span class="footer"></span>
+			Pagina de teste -2024 &copy; Davi Arthur</span>
+		</div>
+		</footer>
+
+		<script>src = "/webjars/jquery/3.5.1/jquery.min.js"</script>
+		<script>src = "/webjars/bootstrap/js/bootstrap.min.js"</script>
+</body>
+
+</html>

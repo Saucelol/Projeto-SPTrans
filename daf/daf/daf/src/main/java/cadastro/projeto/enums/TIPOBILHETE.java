@@ -1,0 +1,19 @@
+package cadastro.projeto.enums;
+
+public enum TIPOBILHETE {
+	
+	COMUM("COMUM"),
+	PERSONALIZADO("PERSONALIZADO"),
+	ESTUDANTE("ESTUDANTE"),
+	PROFESSOR("PROFESSOR"),
+	PESSOA_COM_DEFICIENCIA("PESSOA_COM_DEFICIENCIA"),
+	IDOSO("IDOSO"),
+	CORPORATIVO("CORPORATIVO");
+
+	@SuppressWarnings("unused")
+	private String TIPOBILHETE;
+	
+	private TIPOBILHETE(String TIPOBILHETE) {
+			this.TIPOBILHETE = TIPOBILHETE;
+	}
+}

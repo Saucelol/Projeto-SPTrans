@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
+	<title>Pagina de Cadastro</title>
+	<meta name="author" content="Davi Arthur">
+	<script src="https://kit.fontawesome.com/006642858d.js"></script>
+	<link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+	<link
+		href="https://font.googleapis.com/css2family=Open+Sans:ital,wght@0,400;1,600&family=Ubuntu&family=Work+Snas&display=swap"
+		rel="stylesheet">
+	<link rel="Stylesheet" href="/css/Style.css">
+</head>
+
+<body style=" background-image: url(/img/White-to-black-bg-img-custom.png); background-size: 100% 100%;">
+
+	<!--Cabeçalho-->
+	<div th:replace="fragmentos/fragmentos :: cabecalho"></div>
+
+	<!--Corpo-->
+	<div class="container" style=" background-color: darkgray;">
+
+		<hr>
+		<h3>Ultimos Usuarios Cadastrados</h3>
+		<hr>
+		<table class="table table-borderd table-hover">
+			<thead>
+				<th scope="col">Id</th>
+				<th scope="col">Nome</th>
+				<th scope="col">Email</th>
+				<th scope="col">Telefone</th>
+				<th scope="col">CPF</th>
+				<th scope="col">RG</th>
+				<th scope="col">Data de Nascimento</th>
+				<th scope="col">Ação</th>
+			</thead>
+			<tbody>
+				<tr scope="row" th:each="usuario : ${usuariosList}">
+
+					<td th:text="${usuario.PK_ID_USUARIO}"></td>
+					<td th:text="${usuario.NOME_USUARIO}"></td>
+					<td th:text="${usuario.EMAIL}"></td>
+					<td th:text="${usuario.TELEFONE}"></td>
+					<td th:text="${usuario.CPF}"></td>
+					<td th:text="${usuario.RG}"></td>
+					<td th:text="${usuario.DATA_NASC}"></td>
+					<td>
+						<a class="btn btn-primary" th:href="@{alterarUsuario/{id}(id=${usuario.PK_ID_USUARIO})}">
+							<i class="fas fa-edit"></i> Editar</a>
+						<a class="btn btn-danger" th:href="@{excluirUsuario/{id}(id=${usuario.PK_ID_USUARIO})}">
+							<i class="fas fa-times"></i> &nbsp;Excluir</a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<!--Rodapé-->
+	<div th:replace="fragmentos/fragmentos :: footer"></div>
+
+	<script>src = "/webjars/jquery/3.5.1/jquery.min.js"</script>
+	<script>src = "/webjars/bootstrap/js/bootstrap.min.js"</script>
+</body>
+
+</html>

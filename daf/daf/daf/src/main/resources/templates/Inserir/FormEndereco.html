@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
+	<title>Pagina de Cadastro</title>
+	<meta name="author" content="Davi Arthur">
+	<script src="https://kit.fontawesome.com/006642858d.js"></script>
+	<link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+	<link
+		href="https://font.googleapis.com/css2family=Open+Sans:ital,wght@0,400;1,600&family=Ubuntu&family=Work+Snas&display=swap"
+		rel="stylesheet">
+	<link rel="Stylesheet" href="/css/Style.css">
+</head>
+
+<body style=" background-image: url(/img/White-to-black-bg-img-custom.png); background-size: 100% 100%;">
+
+	<!--Cabeçalho-->
+	<div th:replace="fragmentos/fragmentos :: cabecalho"></div>
+
+	<!--Corpo-->
+	<div class="container" style=" background-color: darkgray;">
+
+
+		<div class="formulario">
+			<!--Id-->
+			<form method="post" action="/InsertEndereco" th:object="${endereco}">
+				<!--Id do morador-->
+				<div class="row" style="margin-top: 10px;">
+					<div class="col-md-6 form-group offset-md-3">
+						<div style="margin-top: 10px;" class="alert alert-danger" role="alert"
+							th:if="${#fields.hasErrors('FK_USUARIO')}">
+							<i class="fas fa-exclamation-circle" style="color: #ff0000;"></i>
+							<label class="validation-message" th:errors="*{FK_USUARIO}"></label>
+						</div>
+						<label class="Cadastrotxt">Id do morador:</label>
+						<input class="form-control" placeholder="Digite o ID do Morador" th:field="*{FK_USUARIO}">
+					</div>
+				</div>
+				<!--CEP-->
+				<div class="row">
+					<div class="col-md-6 form-group offset-md-3">
+						<div style="margin-top: 10px;" class="alert alert-danger" role="alert"
+							th:if="${#fields.hasErrors('CEP')}">
+							<i class="fas fa-exclamation-circle" style="color: #ff0000;"></i>
+							<label class="validation-message" th:errors="*{CEP}"></label>
+						</div>
+						<label class="Cadastrotxt">CEP:</label>
+						<input class="form-control" placeholder="Ex: 01234567" th:field="*{CEP}">
+					</div>
+				</div>
+				<!--Nome da rua-->
+				<div class="row">
+					<div class="col-md-6 form-group offset-md-3">
+						<div style="margin-top: 10px;" class="alert alert-danger" role="alert"
+							th:if="${#fields.hasErrors('RUA')}">
+							<i class="fas fa-exclamation-circle" style="color: #ff0000;"></i>
+							<label class="validation-message" th:errors="*{RUA}"></label>
+						</div>
+						<label class="Cadastrotxt">Nome da rua:</label>
+						<input class="form-control" placeholder="Ex: Alameda Negra Arroyo" th:field="*{RUA}">
+					</div>
+				</div>
+				<!--Numero da casa-->
+				<div class="row">
+					<div class="col-md-6 form-group offset-md-3">
+						<div style="margin-top: 10px;" class="alert alert-danger" role="alert"
+							th:if="${#fields.hasErrors('NUMEROENDERECO')}">
+							<i class="fas fa-exclamation-circle" style="color: #ff0000;"></i>
+							<label class="validation-message" th:errors="*{NUMEROENDERECO}"></label>
+						</div>
+						<label class="Cadastrotxt">Numero da casa:</label>
+						<input class="form-control" placeholder="Ex: 308" th:field="*{NUMEROENDERECO}">
+					</div>
+				</div>
+				<!--Complemento-->
+				<div class="row">
+					<div class="col-md-6 form-group offset-md-3">
+						<div style="margin-top: 10px;" class="alert alert-danger" role="alert"
+							th:if="${#fields.hasErrors('COMPLEMENTO')}">
+							<i class="fas fa-exclamation-circle" style="color: #ff0000;"></i>
+							<label class="validation-message" th:errors="*{COMPLEMENTO}"></label>
+						</div>
+						<label class="Cadastrotxt">Complemento:</label>
+						<input class="form-control" placeholder="OPCIONAL" th:field="*{COMPLEMENTO}">
+					</div>
+				</div>
+				<!--Bairro-->
+				<div class="row">
+					<div class="col-md-6 form-group offset-md-3">
+						<div style="margin-top: 10px;" class="alert alert-danger" role="alert"
+							th:if="${#fields.hasErrors('BAIRRO')}">
+							<i class="fas fa-exclamation-circle" style="color: #ff0000;"></i>
+							<label class="validation-message" th:errors="*{BAIRRO}"></label>
+						</div>
+						<label class="Cadastrotxt">Bairro:</label>
+						<input class="form-control" placeholder="EX: Jardim Bonito" th:field="*{BAIRRO}">
+					</div>
+				</div>
+				<!--Cidade-->
+				<div class="row">
+					<div class="col-md-6 form-group offset-md-3">
+						<div style="margin-top: 10px;" class="alert alert-danger" role="alert"
+							th:if="${#fields.hasErrors('CIDADE')}">
+							<i class="fas fa-exclamation-circle" style="color: #ff0000;"></i>
+							<label class="validation-message" th:errors="*{CIDADE}"></label>
+						</div>
+						<label class="Cadastrotxt">Cidade:</label>
+						<input class="form-control" placeholder="EX: São Paulo" th:field="*{CIDADE}">
+					</div>
+				</div>
+				<!--Estado-->
+				<div class="row">
+					<div class="col-md-6 form-group offset-md-3">
+						<div style="margin-top: 10px;" class="alert alert-danger" role="alert"
+							th:if="${#fields.hasErrors('ESTADO')}">
+							<i class="fas fa-exclamation-circle" style="color: #ff0000;"></i>
+							<label class="validation-message" th:errors="*{ESTADO}"></label>
+						</div>
+						<label class="Cadastrotxt">Estado:</label>
+						<input class="form-control" placeholder="EX: SP" th:field="*{ESTADO}">
+					</div>
+				</div>
+				<!--País-->
+				<div class="row">
+					<div class="col-md-6 form-group offset-md-3">
+						<div style="margin-top: 10px;" class="alert alert-danger" role="alert"
+							th:if="${#fields.hasErrors('PAIS')}">
+							<i class="fas fa-exclamation-circle" style="color: #ff0000;"></i>
+							<label class="validation-message" th:errors="*{PAIS}"></label>
+						</div>
+						<label class="Cadastrotxt">País:</label>
+						<input class="form-control" placeholder="EX: Brasil" th:field="*{PAIS}">
+					</div>
+				</div>
+		</div>
+		<!--Botões finalizar-->
+		<div th:replace="fragmentos/fragmentos :: botoes_submit"></div>
+	</div>
+	<!--Rodapé-->
+	<div th:replace="fragmentos/fragmentos :: footer"></div>
+
+	<script src="js/main.js"></script>
+	<script>src = "/webjars/jquery/3.5.1/jquery.min.js"</script>
+	<script>src = "/webjars/bootstrap/js/bootstrap.min.js"</script>
+</body>
+
+</html>

@@ -1,0 +1,24 @@
+@charset "UTF-8";
+*{margin: 0; padding: 0; box-sizing: border-box;}
+a{cursor: pointer; font-weight:bold;};
+a.btn-nav:hover{color: darkred;}
+.neo-section{
+	padding: 2%;
+	text-align: center;
+	width:100%;
+	padding: 30px;
+	position:relative};
+.wm{width: 50%; float: left;}
+.clear{clear: both;}
+.center{text-align: center;}
+.neo-container{padding: 2% 2%; margin: 0 auto;};
+.Cadastrotxt{font-weight: bold;}
+.texto-titulo{text-align: center; font-weight: bold; font-size:xx-large;};
+/*.navlinks{color: white;}*/
+
+
+/* Responsividade */
+@media screen and (max-width: 666px){
+	.wm{width: 100%;}
+	nav{height: 100%;}
+}

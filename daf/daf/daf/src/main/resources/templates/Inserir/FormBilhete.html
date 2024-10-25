@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
+	<title>Pagina de Cadastro</title>
+	<meta name="author" content="Davi Arthur">
+	<script src="https://kit.fontawesome.com/006642858d.js"></script>
+	<link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+	<link
+		href="https://font.googleapis.com/css2family=Open+Sans:ital,wght@0,400;1,600&family=Ubuntu&family=Work+Snas&display=swap"
+		rel="stylesheet">
+	<link rel="Stylesheet" href="/css/Style.css">
+</head>
+
+<body style=" background-image: url(/img/White-to-black-bg-img-custom.png); background-size: 100% 100%;">
+
+	<!--Cabeçalho-->
+	<div th:replace="fragmentos/fragmentos :: cabecalho"></div>
+
+	<!--Corpo-->
+	<div class="container" style=" background-color: darkgray;">
+
+
+		<div class="formulario">
+			<!--Id-->
+			<form method="post" action="/InsertBilhete" th:object="${bilhete}">
+				<div class="row" style="margin-top: 10px;">
+				</div>
+				<!--IdUser-->
+				<div class="row">
+					<div class="col-md-6 form-group offset-md-3">
+						<div style="margin-top: 10px;" class="alert alert-danger" role="alert"
+							th:if="${#fields.hasErrors('FK_ID_USUARIO')}">
+							<i class="fas fa-exclamation-circle" style="color: #ff0000;"></i>
+							<label class="validation-message" th:errors="*{FK_ID_USUARIO}"></label>
+						</div>
+						<label class="Cadastrotxt">Id do proprietário:</label>
+						<input class="form-control" placeholder="Digite o ID do proprietário"
+							th:field="*{FK_ID_USUARIO}">
+					</div>
+				</div>
+				<!--Tipo do bilhete-->
+				<div class="row">
+					<div class="col-md-6 form-group offset-md-3">
+						<div style="margin-top: 10px;" class="alert alert-danger" role="alert"
+							th:if="${#fields.hasErrors('TIPOBILHETE')}">
+							<i class="fas fa-exclamation-circle" style="color: #ff0000;"></i>
+							<label class="validation-message" th:errors="*{TIPOBILHETE}"></label>
+						</div>
+						<label class="Cadastrotxt">Tipo de bilhete:</label>
+						<input class="form-control" placeholder="Ex: COMUM" th:field="*{TIPOBILHETE}">
+					</div>
+				</div>
+				<!--Data de emissão-->
+				<div class="row">
+					<div class="col-md-6 form-group offset-md-3">
+						<div style="margin-top: 10px;" class="alert alert-danger" role="alert"
+							th:if="${#fields.hasErrors('DATA_EMISSAO')}">
+							<i class="fas fa-exclamation-circle" style="color: #ff0000;"></i>
+							<label class="validation-message" th:errors="*{DATA_EMISSAO}"></label>
+						</div>
+						<label class="Cadastrotxt">Data de emissão:</label>
+						<input class="form-control" placeholder="Ex: 30/01/2005" th:field="*{DATA_EMISSAO}">
+					</div>
+				</div>
+				<!--Data de validade-->
+				<div class="row">
+					<div class="col-md-6 form-group offset-md-3">
+						<div style="margin-top: 10px;" class="alert alert-danger" role="alert"
+							th:if="${#fields.hasErrors('DATA_VALIDADE')}">
+							<i class="fas fa-exclamation-circle" style="color: #ff0000;"></i>
+							<label class="validation-message" th:errors="*{DATA_VALIDADE}"></label>
+						</div>
+						<label class="Cadastrotxt">Data de validade:</label>
+						<input class="form-control" placeholder="Ex: 30/01/2028" th:field="*{DATA_VALIDADE}">
+					</div>
+				</div>
+				<!--ATIVO-->
+				<div class="row">
+					<div class="col-md-6 form-group offset-md-3">
+						<div style="margin-top: 10px;" class="alert alert-danger" role="alert"
+							th:if="${#fields.hasErrors('ATIVO')}">
+							<i class="fas fa-exclamation-circle" style="color: #ff0000;"></i>
+							<label class="validation-message" th:errors="*{ATIVO}"></label>
+						</div>
+						<label class="Cadastrotxt">Estado do bilhete:</label>
+						<br>
+						<input type="radio" id="ATIVADO" name="ESTADO_DO_BILHETE" value="ATIVADO" checked="checked"
+							th:field="*{ATIVO}">
+						<label for="ATIVADO">ATIVADO</label>
+						<br>
+						<input type="radio" id="DESATIVADO" name="ESTADO_DO_BILHETE" value="DESATIVADO"
+							th:field="*{ATIVO}">
+						<label for="DESATIVADO">DESATIVADO</label>
+					</div>
+				</div>
+		</div>
+		<!--Botões finalizar-->
+		<div th:replace="fragmentos/fragmentos :: botoes_submit"></div>
+	</div>
+	</div>
+
+	<!--Rodapé-->
+	<div th:replace="fragmentos/fragmentos :: footer"></div>
+
+	<script src="js/main.js"></script>
+	<script>src = "/webjars/jquery/3.5.1/jquery.min.js"</script>
+	<script>src = "/webjars/bootstrap/js/bootstrap.min.js"</script>
+</body>
+
+</html>
